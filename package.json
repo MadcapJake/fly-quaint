@@ -11,7 +11,7 @@
     "quaint"
   ],
   "scripts": {
-    "lint": "eslint *.js",
+    "lint": "eslint lib/*.js",
     "setup": "npm i && npm test",
     "test": "npm run lint && tape test/*.js | tspec",
     "build": "fly",
