@@ -4,10 +4,7 @@
   "description": "Quaint plugin for Fly.",
   "license": "MIT",
   "repository": "https://github.com/MadcapJake/fly-quaint",
-  "main": "index.js",
-  "files": [
-    "index.js"
-  ],
+  "main": "lib/index.js",
   "keywords":[
     "fly",
     "fly-plugin",
