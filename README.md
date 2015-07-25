@@ -4,7 +4,7 @@
   </a>
 </div>
 
-> [Quaint](https://github.com/MadcapJake/fly-quaint) plugin for _[Fly][fly]_.
+> [Quaint](https://github.com/breuleux/eg-quaint) plugin for _[Fly][fly]_.
 
 [![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
@@ -13,7 +13,9 @@
 [![][mit-badge]][mit]
 
 ## Usage
-> Check out the [documentation](PLUGIN_DOCUMENTATION) to see the available options.
+> Currently, there is no documentation available.  However, you can get a feel for what Quaint is capable of by trying it [here](http://breuleux.net/tryquaint/).
+
+This plugin takes an optional object of options :dizzy_face: which are passed to the compiler. There is one option that is dealt with directly by the plugin and that's the `format` that you'd like the result to be in.  It can be `html`, `enode`, `text` and (currently not working) `dom`.  `format` defaults to `html` and logs a message to the user stating that it is using the default (may drop or change this).
 
 ### Install
 
@@ -23,10 +25,28 @@ npm install -D fly-quaint
 
 ### Example
 
+#### JavaScript
 ```js
 export default function* () {
-  yield ...
+  yield this.clear("dist")
+  yield this
+    .source("src/**/*.q")
+    .quaint({ format: "html" }) // this is the default
+    .concat("result.html")
+    .target("dist")
 }
+```
+
+#### Earl-Grey
+```earl-grey
+provide: default
+default = *->
+   yield this.clear(.dist)
+   yield chain this:
+      @source: "src/*.q"
+      @quaint: { format = .html } ;; this is the default
+      @concat: "result.html"
+      @target: .dist
 ```
 
 # License
