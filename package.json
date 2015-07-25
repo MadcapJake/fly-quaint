@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": "https://github.com/MadcapJake/fly-quaint",
   "main": "lib/index.js",
-  "keywords":[
+  "keywords": [
     "fly",
     "fly-plugin",
     "quaint"
@@ -24,10 +24,13 @@
     "url": "http://github.com/MadcapJake"
   },
   "dependencies": {
-
+    "earlgrey": "0.0.10",
+    "quaint": "0.0.3"
   },
   "devDependencies": {
     "eslint": "^0.21.2",
+    "fly": "^0.3.4",
+    "fly-earl": "^0.3.2",
     "tap-spec": "^4.0.2",
     "tape": "^4.0.0"
   },

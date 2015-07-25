@@ -1,0 +1,15 @@
+provide: default, clear, eg
+
+gen default = ->
+   yield this.tasks.clear()
+   yield this.tasks.eg()
+
+gen clear = ->
+   yield this.clear("lib")
+
+gen eg = ->
+   yield chain this:
+      @source: "src/**/*.eg"
+      @earl: { es5 = true }
+      @concat: "index.js"
+      @target: "lib"
