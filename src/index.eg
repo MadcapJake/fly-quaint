@@ -1,0 +1,11 @@
+require: quaint as q
+
+module.exports = @->
+   @filter("quaint", fn, { extension = ".q" }) where fn = (src, opts) ->
+      if not String? opts.format:
+         @log("Quaint: Defaulting to HTML")
+         format = .html
+      else: format = opts.format
+      delete opts.format
+      try: q.create().translate(src, format, opts)
+      catch e: throw e
