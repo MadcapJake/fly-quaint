@@ -3,13 +3,7 @@ require: quaint as q
 module.exports = @->
    @filter("quaint", fn, { extension = ".q" }) where fn = (src, var opts) ->
       if not opts: opts = {=}
-      print 'Passed in format: {opts.format}'
-      let format =
-         if opts.format == [undefined]:
-            @log("Quaint: Defaulting to HTML")
-            .html
-         else: opts.format
+      let format = opts.format or [@log("Quaint: Defaulting to HTML"); .html]
       delete opts.format
-      print 'Passing format: {format}'
       try: q.create().translate(src, format, opts)
       catch e: throw e
