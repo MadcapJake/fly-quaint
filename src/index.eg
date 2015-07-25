@@ -3,7 +3,8 @@ require: quaint as q
 module.exports = @->
    @filter("quaint", fn, { extension = ".q" }) where fn = (src, var opts) ->
       if not opts: opts = {=}
-      if null? opts.format:
+      print opts.format
+      if undefined? opts.format:
          @log("Quaint: Defaulting to HTML")
          format = .html
       else: format = opts.format
