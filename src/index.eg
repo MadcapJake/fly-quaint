@@ -4,7 +4,7 @@ module.exports = @->
    @filter("quaint", fn, { extension = ".q" }) where fn = (src, var opts) ->
       if not opts: opts = {=}
       print opts.format
-      if undefined? opts.format:
+      if opts.format == [undefined]:
          @log("Quaint: Defaulting to HTML")
          format = .html
       else: format = opts.format
