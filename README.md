@@ -43,7 +43,7 @@ provide: default
 default = *->
    yield this.clear(.dist)
    yield chain this:
-      @source: "src/*.q"
+      @source: "src/**/*.q"
       @quaint: { format = .html } ;; this is the default
       @concat: "result.html"
       @target: .dist
